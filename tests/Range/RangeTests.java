@@ -235,6 +235,78 @@ public class RangeTestIntersects {
 	}*/
 
 //	=============================================================
+	
+	@Test
+	public void containForValueLessThanRange() {
+		Range range = new Range(5,10);
+		double value = 2;
+		boolean result = range.contains(value);
+		assertFalse(result);
+	}
+	
+	@Test
+	public void containForValueWithinRange() {
+		Range range = new Range(5,10);
+		double value = 7;
+		boolean result = range.contains(value);
+		assertTrue(result);
+	}
+	
+	@Test
+	public void containForValueGreaterThanRange() {
+		Range range = new Range(5,10);
+		double value = 12;
+		boolean result = range.contains(value);
+		assertFalse(result);
+	}
+	
+
+	
+	@Test
+	public void shiftLowerBoundCrossesZeroMovingRight() {
+		Range range = new Range(-5,5);
+		double delta = 6;
+		Range result = Range.shift(range,delta);
+		assertEquals(result.getUpperBound(), 11,0);
+		assertEquals(result.getLowerBound(), 0,0);
+	}
+	
+	@Test
+	public void shiftLowerBoundCrossesZeroMovingLeft() {
+		Range range = new Range(1,5);
+		double delta = -3;
+		Range result = Range.shift(range,delta);
+		assertEquals(result.getUpperBound(), 2,0);
+		assertEquals(result.getLowerBound(), 0,0);
+	}
+	
+	@Test
+	public void shiftUpperBoundCrossesZeroMovingLeft() {
+		Range range = new Range(-5,5);
+		double delta = -6;
+		Range result = Range.shift(range,delta);
+		assertEquals(result.getUpperBound(), 0,0);
+		assertEquals(result.getLowerBound(), -11,0);
+	}
+	
+	@Test
+	public void shiftUpperBoundCrossesZeroMovingRight() {
+		Range range = new Range(-5,-1);
+		double delta = 3;
+		Range result = Range.shift(range,delta);
+		assertEquals(result.getUpperBound(), 0,0);
+		assertEquals(result.getLowerBound(), -2,0);
+	}
+	
+	@Test
+	public void shiftNoBoundsCrossZero() {
+		Range range = new Range(1,5);
+		double delta = 3;
+		Range result = Range.shift(range,delta);
+		assertEquals(result.getUpperBound(), 8,0);
+		assertEquals(result.getLowerBound(), 4,0);
+	}
+	
 	public void tearDown() throws Exception {
 		
 	}
