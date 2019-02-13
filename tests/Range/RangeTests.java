@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.jfree.data.Range;
 import org.junit.*;
 
-public class RangeTestIntersects {
+public class RangeTests {
 
 	private Range exampleRange;
 	
