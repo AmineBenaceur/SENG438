@@ -18,7 +18,7 @@ public class RangeTests {
 		exampleRange = new Range(-1, 1);
 	}
 	
-	//	=================== For intersects() =========================
+//	=================== For intersects() =========================
 	/*
 	 * This test covers the case where range is entirely to the left of input, eg.
 	 * 		[	]	(	)
@@ -106,7 +106,7 @@ public class RangeTests {
 		assert( intersects );
 	}
 
-	//	=================== For constrain() =========================
+//	=================== For constrain() =========================
 	
 	/*
 	 * This test covers the case where value is less than the lower bound of the range
