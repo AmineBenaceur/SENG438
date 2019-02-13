@@ -18,6 +18,11 @@ public class RangeTestIntersects {
 		exampleRange = new Range(-1, 1);
 	}
 	
+	//	=================== For intersects() =========================
+	/*
+	 * This test covers the case where range is entirely to the left of input, eg.
+	 * 		[	]	(	)
+	 */
 	@Test
 	public void intersectsWithPositiveRangesNotIntersecting(){
 		Range range = new Range(5, 10);
@@ -25,6 +30,10 @@ public class RangeTestIntersects {
 		assertFalse( intersects );
 	}
 	
+	/*
+	 * This test covers the case where range is entirely to the right of input, eg.
+	 * 		(	)	[	]
+	 */
 	@Test
 	public void intersectsWithNegativeRangesNotIntersecting(){
 		Range range = new Range(-50, -20);
@@ -32,6 +41,10 @@ public class RangeTestIntersects {
 		assertFalse( intersects );
 	}
 	
+	/*
+	 * This test covers the case where range is entirely to the left of input with inverse border, eg.
+	 * 		[	]	(high	)low
+	 */
 	@Test
 	public void intersectsWithNegativeRangesNotIntersectingInverseInput(){
 		Range range = new Range(5, 10);
@@ -39,6 +52,21 @@ public class RangeTestIntersects {
 		assertFalse( intersects );
 	}
 	
+	/*
+	 * This test covers the case where range is entirely to the right of input with inverse border, eg.
+	 * 		(high	)low	[	]
+	 */
+	@Test
+	public void intersectsWithNegativeRangesNotIntersectingInverseInput(){
+		Range range = new Range(20, 40);
+		Boolean intersects = range.intersects(5, 10);
+		assertFalse( intersects );
+	}
+	
+	/*
+	 * This test covers the case where range is crossing to the right of input, eg.
+	 * 		(	[	)	]
+	 */
 	@Test
 	public void intersectsWithInputRight(){
 		Range range = new Range(5, 10);
@@ -46,6 +74,10 @@ public class RangeTestIntersects {
 		assert( intersects );
 	}
 	
+	/*
+	 * This test covers the case where range is crossing to the left of input, eg.
+	 * 		[	(	]	)
+	 */
 	@Test
 	public void intersectsWithInputLeft(){
 		Range range = new Range(7, 20);
@@ -53,13 +85,20 @@ public class RangeTestIntersects {
 		assert( intersects );
 	}
 	
+	/*
+	 * This test covers the case where range is entirely outside of input, eg.
+	 * 		[	(	)	]
+	 */
 	@Test
 	public void intersectsWithInputInside(){
 		Range range = new Range(5, 20);
 		Boolean intersects = range.intersects(7, 15);
 		assert( intersects );
 	}
-	
+	/*
+	 * This test covers the case where range is entirely inside of input, eg.
+	 * 		(	[	]	)
+	 */
 	@Test
 	public void intersectsWithInputOutside(){
 		Range range = new Range(7, 15);
