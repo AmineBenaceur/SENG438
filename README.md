@@ -2,10 +2,10 @@
 SENG438 
 
 #### Range Tests
-  - [ ] constrain
+  - [x] constrain
   - [ ] contains
   - [x] intersects
-  - [ ] combine
+  - [x] combine
   - [ ] shift
 
 
