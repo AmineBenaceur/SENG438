@@ -46,7 +46,7 @@ public class RangeTestIntersects {
 	 * 		[	]	(high	)low
 	 */
 	@Test
-	public void intersectsWithNegativeRangesNotIntersectingInverseInput(){
+	public void intersectsWithNegativeRangesNotIntersectingInverseInputRight(){
 		Range range = new Range(5, 10);
 		Boolean intersects = range.intersects(40, 20);
 		assertFalse( intersects );
@@ -57,7 +57,7 @@ public class RangeTestIntersects {
 	 * 		(high	)low	[	]
 	 */
 	@Test
-	public void intersectsWithNegativeRangesNotIntersectingInverseInput(){
+	public void intersectsWithNegativeRangesNotIntersectingInverseInputLeft(){
 		Range range = new Range(20, 40);
 		Boolean intersects = range.intersects(5, 10);
 		assertFalse( intersects );
