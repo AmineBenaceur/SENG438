@@ -3,10 +3,10 @@ SENG438
 
 #### Range Tests
   - [x] constrain
-  - [ ] contains
+  - [x] contains
   - [x] intersects
   - [x] combine
-  - [ ] shift
+  - [x] shift
 
 
 #### DataUtilities Tests
